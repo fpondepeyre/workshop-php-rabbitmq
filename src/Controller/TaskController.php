@@ -22,6 +22,8 @@ class TaskController extends Controller
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
+            $this->get('old_sound_rabbit_mq.task_producer')->publish(json_encode($form->getData()));
+
             return $this->redirectToRoute('task');
         }
 
