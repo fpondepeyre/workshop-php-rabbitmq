@@ -30,3 +30,5 @@ services:
     App\MessageHandler\:
         resource: '../src/MessageHandler/*'
         tags: [messenger.message_handler]
+
+    OldSound\RabbitMqBundle\RabbitMq\ProducerInterface: '@old_sound_rabbit_mq.task_producer'
