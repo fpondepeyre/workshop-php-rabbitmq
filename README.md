@@ -19,7 +19,7 @@ php -S 127.0.0.1:8000 -t public
 
 Build with Symfony4 && Rabbitmq (https://www.rabbitmq.com/, http://symfony.com/)
 
-- Example with php-amqplib/RabbitMqBundle
+- Example with RabbitMqBundle and "Dead Letter Exchange"
 
 ```
 # http://localhost:8000/task
