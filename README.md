@@ -17,22 +17,34 @@ php -S 127.0.0.1:8000 -t public
 
 # Workshop
 
-Build with Symfony4 && Rabbitmq (https://www.rabbitmq.com/, http://symfony.com/)
+Build with Symfony4 and Rabbitmq (https://www.rabbitmq.com/, http://symfony.com/)
 
-- Example with RabbitMqBundle and "Dead Letter Exchange"
+## Example with RabbitMqBundle and "Dead Letter Exchange"
 
+
+Publish message with controller
 ```
-# http://localhost:8000/task
-./bin/console rabbitmq:consumer task
+http://localhost:8000/task
 ```
 
-Publish messages:
+Publish messages with command:
 ```
 ./bin/console app:publish
 ```
 
-- Example with Messenger Component
+Consume all messages:
+```
+./bin/console rabbitmq:consumer task
+```
+
+## Example with Messenger Component
+
+Publish message with controller
+```
+http://localhost:8000/messenger
+```
+
+Consume all messages:
 ``` 
-# http://localhost:8000/messenger
 ./bin/console messenger:consume-messages default
 ```
