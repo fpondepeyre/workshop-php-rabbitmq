@@ -25,6 +25,12 @@ Build with Symfony4 && Rabbitmq (https://www.rabbitmq.com/, http://symfony.com/)
 # http://localhost:8000/task
 ./bin/console rabbitmq:consumer task
 ```
+
+Publish messages:
+```
+./bin/console app:publish
+```
+
 - Example with Messenger Component
 ``` 
 # http://localhost:8000/messenger
