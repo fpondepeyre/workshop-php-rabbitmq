@@ -18,8 +18,9 @@ class TaskConsumer implements ConsumerInterface
     public function execute(AMQPMessage $message): int
     {
         $data = json_decode($message->getBody(), true);
-        var_dump($data);
 
-        return ConsumerInterface::MSG_ACK;
+        echo "New Task: ".$data['title']."\n";
+
+        return ConsumerInterface::MSG_ACK; //ConsumerInterface::MSG_REJECT;
     }
 }

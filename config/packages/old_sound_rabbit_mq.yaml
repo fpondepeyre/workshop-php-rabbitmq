@@ -7,9 +7,16 @@ old_sound_rabbit_mq:
         task:
             connection:       default
             exchange_options: { name: 'task', type: direct }
+
     consumers:
         task:
             connection:       default
             exchange_options: { name: 'task', type: direct }
-            queue_options:    { name: 'task'}
+            queue_options:    { name: 'task', arguments: {'x-dead-letter-exchange': ['S', 'task_dl']}}
+            callback:         App\Consumer\TaskConsumer
+
+        task_dl:
+            connection:       default
+            exchange_options: { name: 'task_dl', type: direct }
+            queue_options:    { name: 'task_dl' }
             callback:         App\Consumer\TaskConsumer
